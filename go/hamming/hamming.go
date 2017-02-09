@@ -2,26 +2,20 @@ package hamming
 
 import (
 	"errors"
-	"strings"
 )
 
 const testVersion = 5
 
-func Distance(a, b string) (int, error) {
-	var distance int
-	splitedA := strings.Split(a, "")
-	splitedB := strings.Split(b, "")
-	lenA := len(splitedA)
-	lenB := len(splitedB)
-	genomesSizes := lenA - lenB
+var ErrDifferentGenomes = errors.New("Diff genomes!")
 
-	if genomesSizes != 0 {
-		return genomesSizes, errors.New("Different genomes.")
+func Distance(a, b string) (distance int, _ error) {
+	if len(a) != len(b) {
+		return -1, ErrDifferentGenomes
 	}
 
-	for i := 0; i < lenA; i++ {
-		if splitedA[i] != splitedB[i] {
-			distance += 1
+	for i := 0; i < len(a); i++ {
+		if a[i] != b[i] {
+			distance++
 		}
 	}
 
