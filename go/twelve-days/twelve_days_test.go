@@ -69,11 +69,11 @@ func TestSong(t *testing.T) {
 	}
 }
 
-// func TestVerse(t *testing.T) {
-// 	for _, test := range testCases {
-// 		actual := Verse(test.input)
-// 		if actual != test.expected {
-// 			t.Errorf("Twelve Days test [%d], expected [%s], actual [%s]", test.input, test.expected, actual)
-// 		}
-// 	}
-// }
+func TestVerse(t *testing.T) {
+	for _, test := range testCases {
+		actual := Verse(test.input)
+		if actual != test.expected {
+			t.Errorf("Twelve Days test [%d], expected [%s], actual [%s]", test.input, test.expected, actual)
+		}
+	}
+}
