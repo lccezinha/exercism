@@ -33,14 +33,6 @@ defmodule PigLatin do
     String.starts_with?(phrase, @vowels ++ @fake_vowels)
   end
 
-  defp begin_with_consonants?(phrase) do
-    !begin_with_vowels?(phrase)
-  end
-
-  defp begin_with_two_consonants(phrase) do
-    !begin_with_vowels?(String.at(phrase, 0)) && !begin_with_vowels?(String.at(phrase, 1))
-  end
-
   defp build_world(phrase) do
     group = ~r/(ch)|(qu)|(thr)|(th)|(sch)|[^aeiou]qu|[^aeiou]{1,}/
 
